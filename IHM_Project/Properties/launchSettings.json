@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "IHM_Project (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "IHM_Project (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
