@@ -6,8 +6,105 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <StackPanel>
+        <StackPanel x:Name="bouttons" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="12">
+            <Button x:Name="lampe1" Click="myButton_Click">Lampe 1</Button>
+            <Button x:Name="lampe2" Click="myButton_Click">Lampe 2</Button>
+            <Button x:Name="lampe3" Click="myButton_Click">Lampe 3</Button>
+            <Button x:Name="lampe4" Click="myButton_Click">Lampe 4</Button>
+            <Button x:Name="lampe5" Click="myButton_Click">Lampe 5</Button>
+            <Button x:Name="lampe6" Click="myButton_Click">Lampe 6</Button>
+            <Button x:Name="lampe7" Click="myButton_Click">Lampe 7</Button>
+            <Button x:Name="lampe8" Click="myButton_Click">Lampe 8</Button>
+            <Button x:Name="lampe9" Click="myButton_Click">Lampe 9</Button>
+            <Button x:Name="lampe10" Click="myButton_Click">Lampe 10</Button>
+        </StackPanel>
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
+        <StackPanel x:Name="lampes" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="12">
+            <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
+            <StackPanel>
+                <Ellipse
+     Fill="Gray"
+     Height="150"
+     Width="150"
+     StrokeThickness="2"
+     Stroke="Black"/>
+            </StackPanel>
+            <StackPanel>
+                <Ellipse
+     Fill="Gray"
+     Height="150"
+     Width="150"
+     StrokeThickness="2"
+     Stroke="Black"/>
+            </StackPanel>
+            <StackPanel>
+                <Ellipse
+     Fill="Gray"
+     Height="150"
+     Width="150"
+     StrokeThickness="2"
+     Stroke="Black"/>
+            </StackPanel>
+            <StackPanel>
+                <Ellipse
+     Fill="Gray"
+     Height="150"
+     Width="150"
+     StrokeThickness="2"
+     Stroke="Black"/>
+            </StackPanel>
+            <StackPanel>
+                <Ellipse
+     Fill="Gray"
+     Height="150"
+     Width="150"
+     StrokeThickness="2"
+     Stroke="Black"/>
+            </StackPanel>
+            <StackPanel>
+                <Ellipse
+     Fill="Gray"
+     Height="150"
+     Width="150"
+     StrokeThickness="2"
+     Stroke="Black"/>
+            </StackPanel>
+            <StackPanel>
+                <Ellipse
+     Fill="Gray"
+     Height="150"
+     Width="150"
+     StrokeThickness="2"
+     Stroke="Black"/>
+            </StackPanel>
+            <StackPanel>
+                <Ellipse
+     Fill="Gray"
+     Height="150"
+     Width="150"
+     StrokeThickness="2"
+     Stroke="Black"/>
+            </StackPanel>
+            <StackPanel>
+                <Ellipse
+     Fill="Gray"
+     Height="150"
+     Width="150"
+     StrokeThickness="2"
+     Stroke="Black"/>
+            </StackPanel>
+            <StackPanel>
+                <Ellipse
+     Fill="Gray"
+     Height="150"
+     Width="150"
+     StrokeThickness="2"
+     Stroke="Black"/>
+            </StackPanel>
+        </StackPanel>
     </StackPanel>
+
+
+
 </Window>
