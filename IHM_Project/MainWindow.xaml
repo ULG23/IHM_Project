@@ -8,23 +8,25 @@
     mc:Ignorable="d">
     <StackPanel>
         <StackPanel x:Name="bouttons" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="12">
-            <Button x:Name="lampe1" Click="myButton_Click">Lampe 1</Button>
-            <Button x:Name="lampe2" Click="myButton_Click">Lampe 2</Button>
-            <Button x:Name="lampe3" Click="myButton_Click">Lampe 3</Button>
-            <Button x:Name="lampe4" Click="myButton_Click">Lampe 4</Button>
-            <Button x:Name="lampe5" Click="myButton_Click">Lampe 5</Button>
-            <Button x:Name="lampe6" Click="myButton_Click">Lampe 6</Button>
-            <Button x:Name="lampe7" Click="myButton_Click">Lampe 7</Button>
-            <Button x:Name="lampe8" Click="myButton_Click">Lampe 8</Button>
-            <Button x:Name="lampe9" Click="myButton_Click">Lampe 9</Button>
-            <Button x:Name="lampe10" Click="myButton_Click">Lampe 10</Button>
+            <Button x:Name="button1" Click="button1_Click">Lampe 1</Button>
+            <Button x:Name="button2" Click="button2_Click">Lampe 2</Button>
+            <Button x:Name="button3" Click="button3_Click">Lampe 3</Button>
+            <Button x:Name="button4" Click="button4_Click">Lampe 4</Button>
+            <Button x:Name="button5" Click="button5_Click">Lampe 5</Button>
+            <Button x:Name="button6" Click="button6_Click">Lampe 6</Button>
+            <Button x:Name="button7" Click="button7_Click">Lampe 7</Button>
+            <Button x:Name="button8" Click="button8_Click">Lampe 8</Button>
+            <Button x:Name="button9" Click="button9_Click">Lampe 9</Button>
+            <Button x:Name="button10" Click="button10_Click">Lampe 10</Button>
         </StackPanel>
 
         <StackPanel x:Name="lampes" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="12">
-            <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
+            <Button x:Name="buttonForAll" Click="buttonForAll_Click" AccessKey="Off" Background="Gray">Allumer</Button>
             <StackPanel>
                 <Ellipse
      Fill="Gray"
+    Name="lamp1"
+    AccessKey="Off"
      Height="150"
      Width="150"
      StrokeThickness="2"
@@ -33,6 +35,8 @@
             <StackPanel>
                 <Ellipse
      Fill="Gray"
+     Name="lamp2"
+    AccessKey="Off"
      Height="150"
      Width="150"
      StrokeThickness="2"
@@ -41,6 +45,8 @@
             <StackPanel>
                 <Ellipse
      Fill="Gray"
+    AccessKey="Off"
+    Name="lamp3"
      Height="150"
      Width="150"
      StrokeThickness="2"
@@ -49,6 +55,8 @@
             <StackPanel>
                 <Ellipse
      Fill="Gray"
+    AccessKey="Off"
+    Name="lamp4"
      Height="150"
      Width="150"
      StrokeThickness="2"
@@ -57,6 +65,8 @@
             <StackPanel>
                 <Ellipse
      Fill="Gray"
+    Name="lamp5"
+    AccessKey="Off"
      Height="150"
      Width="150"
      StrokeThickness="2"
@@ -65,6 +75,8 @@
             <StackPanel>
                 <Ellipse
      Fill="Gray"
+    Name="lamp6"
+    AccessKey="Off"
      Height="150"
      Width="150"
      StrokeThickness="2"
@@ -73,6 +85,8 @@
             <StackPanel>
                 <Ellipse
      Fill="Gray"
+    Name="lamp7"
+    AccessKey="Off"
      Height="150"
      Width="150"
      StrokeThickness="2"
@@ -81,6 +95,8 @@
             <StackPanel>
                 <Ellipse
      Fill="Gray"
+    Name="lamp8"
+    AccessKey="Off"
      Height="150"
      Width="150"
      StrokeThickness="2"
@@ -89,6 +105,8 @@
             <StackPanel>
                 <Ellipse
      Fill="Gray"
+    Name="lamp9"
+    AccessKey="Off"
      Height="150"
      Width="150"
      StrokeThickness="2"
@@ -97,6 +115,8 @@
             <StackPanel>
                 <Ellipse
      Fill="Gray"
+    Name="lamp10"
+    AccessKey="Off"
      Height="150"
      Width="150"
      StrokeThickness="2"
