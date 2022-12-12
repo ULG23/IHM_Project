@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
@@ -29,7 +30,7 @@ namespace IHM_Project
             this.InitializeComponent();
         }
 
-        private void buttonForALl_Click(object sender, RoutedEventArgs e)
+        public void buttonForAll_Click(object sender, RoutedEventArgs e)
         {
             if (buttonForAll.AccessKey.Equals("Off"))
             {
@@ -86,12 +87,8 @@ namespace IHM_Project
             }
 
         }
-           
+          
 
-
-        
-
-       
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
@@ -230,6 +227,124 @@ namespace IHM_Project
                 lamp10.Fill = new SolidColorBrush(Colors.Gray);
                 lamp10.AccessKey = "Off";
             }
+        }
+
+        private void animationButton1_Click(object sender, RoutedEventArgs e)
+        {
+            //for (int i = 0; i < 10; i++)
+            //{
+                if (lamp1.AccessKey.Equals("Off"))
+                {
+                    lamp1.Fill = new SolidColorBrush(Colors.Green);
+                    lamp1.AccessKey = "On";
+                    lamp2.Fill = new SolidColorBrush(Colors.Green);
+                    lamp2.AccessKey = "On";
+                    lamp3.Fill = new SolidColorBrush(Colors.Green);
+                    lamp3.AccessKey = "On";
+                    lamp4.Fill = new SolidColorBrush(Colors.Green);
+                    lamp4.AccessKey = "On";
+                    lamp5.Fill = new SolidColorBrush(Colors.Green);
+                    lamp5.AccessKey = "On";
+                    lamp6.Fill = new SolidColorBrush(Colors.Green);
+                    lamp6.AccessKey = "On";
+                    lamp7.Fill = new SolidColorBrush(Colors.Green);
+                    lamp7.AccessKey = "On";
+                    lamp8.Fill = new SolidColorBrush(Colors.Green);
+                    lamp8.AccessKey = "On";
+                    lamp9.Fill = new SolidColorBrush(Colors.Green);
+                    lamp9.AccessKey = "On";
+                    lamp10.Fill = new SolidColorBrush(Colors.Green);
+                    lamp10.AccessKey = "On";
+                    
+                }
+
+                else
+                {
+                    lamp1.AccessKey = "Off";
+                    lamp1.Fill = new SolidColorBrush(Colors.Gray);
+                    lamp2.AccessKey = "Off";
+                    lamp2.Fill = new SolidColorBrush(Colors.Gray);
+                    lamp3.AccessKey = "Off";
+                    lamp3.Fill = new SolidColorBrush(Colors.Gray);
+                    lamp4.AccessKey = "Off";
+                    lamp4.Fill = new SolidColorBrush(Colors.Gray);
+                    lamp5.AccessKey = "Off";
+                    lamp5.Fill = new SolidColorBrush(Colors.Gray);
+                    lamp6.AccessKey = "Off";
+                    lamp6.Fill = new SolidColorBrush(Colors.Gray);
+                    lamp7.AccessKey = "Off";
+                    lamp7.Fill = new SolidColorBrush(Colors.Gray);
+                    lamp8.AccessKey = "Off";
+                    lamp8.Fill = new SolidColorBrush(Colors.Gray);
+                    lamp9.AccessKey = "Off";
+                    lamp9.Fill = new SolidColorBrush(Colors.Gray);
+                    lamp10.Fill = new SolidColorBrush(Colors.Gray);
+                    lamp10.AccessKey = "Off";
+                    
+                }
+            //}
+        }
+
+        private void animationButton2_Click(object sender, RoutedEventArgs e)
+        {
+            if (lamp1.AccessKey.Equals("Off"))
+            {
+                lamp1.Fill = new SolidColorBrush(Colors.Green);
+                lamp1.AccessKey = "On";
+                lamp2.Fill = new SolidColorBrush(Colors.Green);
+                lamp2.AccessKey = "On";
+                lamp3.Fill = new SolidColorBrush(Colors.Green);
+                lamp3.AccessKey = "On";
+                lamp4.Fill = new SolidColorBrush(Colors.Green);
+                lamp4.AccessKey = "On";
+                lamp5.Fill = new SolidColorBrush(Colors.Green);
+                lamp5.AccessKey = "On";
+                lamp6.Fill = new SolidColorBrush(Colors.Green);
+                lamp6.AccessKey = "On";
+                lamp7.Fill = new SolidColorBrush(Colors.Green);
+                lamp7.AccessKey = "On";
+                lamp8.Fill = new SolidColorBrush(Colors.Green);
+                lamp8.AccessKey = "On";
+                lamp9.Fill = new SolidColorBrush(Colors.Green);
+                lamp9.AccessKey = "On";
+                lamp10.Fill = new SolidColorBrush(Colors.Green);
+                lamp10.AccessKey = "On";
+
+            }
+
+            else
+            {
+                lamp1.AccessKey = "Off";
+                lamp1.Fill = new SolidColorBrush(Colors.Gray);
+                lamp2.AccessKey = "Off";
+                lamp2.Fill = new SolidColorBrush(Colors.Gray);
+                lamp3.AccessKey = "Off";
+                lamp3.Fill = new SolidColorBrush(Colors.Gray);
+                lamp4.AccessKey = "Off";
+                lamp4.Fill = new SolidColorBrush(Colors.Gray);
+                lamp5.AccessKey = "Off";
+                lamp5.Fill = new SolidColorBrush(Colors.Gray);
+                lamp6.AccessKey = "Off";
+                lamp6.Fill = new SolidColorBrush(Colors.Gray);
+                lamp7.AccessKey = "Off";
+                lamp7.Fill = new SolidColorBrush(Colors.Gray);
+                lamp8.AccessKey = "Off";
+                lamp8.Fill = new SolidColorBrush(Colors.Gray);
+                lamp9.AccessKey = "Off";
+                lamp9.Fill = new SolidColorBrush(Colors.Gray);
+                lamp10.Fill = new SolidColorBrush(Colors.Gray);
+                lamp10.AccessKey = "Off";
+
+            }
+        }
+
+        private void animationButton1_Click_1(object sender, RoutedEventArgs e)
+        {
+            animationButton1.AccessKey = "listed";
+            // récuperer le nb d'animations deja comrpises dans la liste
+            int i = 0;
+            animationButton1.TabIndex = i+1;
+
         }
 
         //DispatcherTimer dispatcherTimer;
