@@ -1,0 +1,70 @@
+﻿<Page
+    x:Class="IHM_Project.Views.LightView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IHM_Project.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Transparent">
+
+    <StackPanel>
+        <StackPanel x:Name="lampes" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="12">
+            <Button x:Name="buttonForAll" Background="Gray">Allumer</Button>
+            <StackPanel>
+                <Ellipse
+                    Fill="{x:Bind lightViewModel.Bulb1.Color, Mode=OneWay}"
+    Name="lamp1"
+     Height="150"
+     Width="150"
+     StrokeThickness="2"
+     Stroke="Black"/>
+            </StackPanel>
+            <StackPanel>
+                <Ellipse
+                    Fill="{x:Bind lightViewModel.Bulb2.Color, Mode=OneWay}"
+     Name="lamp2"
+     Height="150"
+     Width="150"
+     StrokeThickness="2"
+     Stroke="Black"/>
+            </StackPanel>
+            <StackPanel>
+                <Ellipse
+                    Fill="{x:Bind lightViewModel.Bulb3.Color, Mode=OneWay}"
+    Name="lamp3"
+     Height="150"
+     Width="150"
+     StrokeThickness="2"
+     Stroke="Black"/>
+            </StackPanel>
+            <StackPanel>
+                <Ellipse
+Fill="{x:Bind lightViewModel.Bulb4.Color, Mode=OneWay}"
+    Name="lamp4"
+     Height="150"
+     Width="150"
+     StrokeThickness="2"
+     Stroke="Black"/>
+            </StackPanel>
+            <StackPanel>
+                <Ellipse
+                    Fill="{x:Bind lightViewModel.Bulb5.Color, Mode=OneWay}"
+    Name="lamp5"
+     Height="150"
+     Width="150"
+     StrokeThickness="2"
+     Stroke="Black"/>
+            </StackPanel>
+            <StackPanel>
+                <Ellipse
+                    Fill="{x:Bind lightViewModel.Bulb6.Color, Mode=OneWay}"
+    Name="lamp6"
+     Height="150"
+     Width="150"
+     StrokeThickness="2"
+     Stroke="Black"/>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Page>

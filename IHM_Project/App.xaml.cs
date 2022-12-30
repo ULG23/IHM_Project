@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Xaml;
+﻿using IHM_Project.Views;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -26,6 +27,8 @@ namespace IHM_Project
     /// </summary>
     public partial class App : Application
     {
+
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -44,8 +47,12 @@ namespace IHM_Project
         {
             m_window = new MainWindow();
             m_window.Activate();
+
+            var rootFrame = m_window.Content as Frame;
+            rootFrame?.Navigate(typeof(LightView), args.Arguments);
+            m_window.Activate();
         }
 
-        private Window m_window;
+        private Window? m_window;
     }
 }
