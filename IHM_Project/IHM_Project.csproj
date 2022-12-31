@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
@@ -10,8 +10,11 @@
     <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
     <UseWinUI>true</UseWinUI>
     <EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
-    <UseWPF>True</UseWPF>
+	<Nullable>enable</Nullable>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Views\LightView.xaml" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -24,7 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DocumentFormat.OpenXml" Version="2.19.0" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.3" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22000.194" />
     <Manifest Include="$(ApplicationManifest)" />
@@ -34,6 +36,6 @@
        Tools extension to be activated for this project even if the Windows App SDK Nuget
        package has not yet been restored -->
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnablePreviewMsixTooling)'=='true'">
-    <ProjectCapability Include="Msix" />
+    <ProjectCapability Include="Msix"/>
   </ItemGroup>
 </Project>
