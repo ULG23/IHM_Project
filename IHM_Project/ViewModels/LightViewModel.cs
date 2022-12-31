@@ -14,9 +14,9 @@ namespace IHM_Project.ViewModels
     public partial class LightViewModel
     {
 
-        private int animationCounter = 0;
+        int tick = 0;
 
-        DispatcherTimer timer = new DispatcherTimer();
+        DispatcherTimer timerBlink = new DispatcherTimer();
 
         [ObservableProperty]
         private Bulb bulb1 = new();
@@ -47,10 +47,8 @@ namespace IHM_Project.ViewModels
 
         public LightViewModel()
         {
-
-            timer.Tick += new EventHandler<object>(UpdateTimer_Tick);
-            timer.Interval = new TimeSpan(0, 0, 2);
-            timer.Start();
+            timerBlink.Tick += new EventHandler<object>(UpdateTimerBlink_Tick);
+            timerBlink.Interval = new TimeSpan(0, 0, 0, 0, 500);
 
             AnimationBlinkCommand = new RelayCommand(AnimationBlink);
             AnimationFadeCommand = new RelayCommand(AnimationFade);
@@ -71,20 +69,10 @@ namespace IHM_Project.ViewModels
 
         private void AnimationBlink()
         {
+            this.tick = 0;
 
+            timerBlink.Start();
 
-            for (int i = 0; i < bulbs.Count; i++)
-            {
-                bulbs[i].Color = new SolidColorBrush(Colors.Blue);
-            }
-
-            if (bulbs[1].Color == new SolidColorBrush(Colors.Blue))
-            {
-                for (int i = 0; i < bulbs.Count; i++)
-                {
-                    bulbs[i].Color = new SolidColorBrush(Colors.Gray);
-                }
-            }
         }
 
         private void AnimationFade()
@@ -95,6 +83,7 @@ namespace IHM_Project.ViewModels
             }
 
         }
+
 
         private void AnimationMerge()
         {
@@ -114,15 +103,39 @@ namespace IHM_Project.ViewModels
 
         }
 
-        private void UpdateTimer_Tick(object sender, object e)
+        private void UpdateTimerBlink_Tick(object sender, object e)
         {
 
-            while (animationCounter < 5)
+            tick = tick + 1;
+            if (tick <= 8)
             {
-                AnimationBlink();
-                animationCounter++;
+                if (tick % 2 != 0)
+                {
+                    for (int i = 0; i < bulbs.Count; i++)
+                    {
+                        bulbs[i].Color = new SolidColorBrush(Colors.Blue);
+                    }
+
+                }
+
+                if (tick % 2 == 0)
+                {
+                    for (int i = 0; i < bulbs.Count; i++)
+                    {
+                        bulbs[i].Color = new SolidColorBrush(Colors.Gray);
+                    }
+
+                }
             }
-            animationCounter = 0;
+            else return;
+
+
+            //while (animationCounter < 5)
+            //{
+            //    AnimationBlink();
+            //    animationCounter++;
+            //}
+            //animationCounter = 0;
         }
 
     }
