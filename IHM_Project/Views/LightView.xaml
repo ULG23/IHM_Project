@@ -10,10 +10,10 @@
 
     <StackPanel>
         <StackPanel BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="12" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Button Command="{x:Bind lightViewModel.AnimationBlinkCommand}" >Animation Blink</Button>
+            <Button Command="{x:Bind lightViewModel.AnimationBlinkCommand}"  >Animation Blink</Button>
             <Button Command="{x:Bind lightViewModel.AnimationFadeCommand}" >Animation Fade</Button>
             <Button Command="{x:Bind lightViewModel.AnimationMergeCommand}" >Animation Merge</Button>
-            <Button Command="{x:Bind lightViewModel.AnimationF1Command}" >Animation F1</Button>
+            <Button Command="{x:Bind lightViewModel.AnimationF1Command}">Animation F1</Button>
         </StackPanel>
         
         <StackPanel x:Name="lampes" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="12">

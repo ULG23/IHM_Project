@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using IHM_Project.Model;
 using Microsoft.UI;
 using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using System;
 using System.Collections.Generic;
@@ -48,14 +49,7 @@ namespace IHM_Project.ViewModels
         public LightViewModel()
         {
 
-            timer.Tick += new EventHandler<object>(UpdateTimer_Tick);
-            timer.Interval = new TimeSpan(0, 0, 2);
-            timer.Start();
 
-            AnimationBlinkCommand = new RelayCommand(AnimationBlink);
-            AnimationFadeCommand = new RelayCommand(AnimationFade);
-            AnimationMergeCommand = new RelayCommand(AnimationMerge);
-            AnimationF1Command = new RelayCommand(AnimationF1);
 
             bulbs.Add(bulb1);
             bulbs.Add(bulb2);
@@ -67,11 +61,20 @@ namespace IHM_Project.ViewModels
             {
                 bulbs[i].Color = new SolidColorBrush(Colors.Gray);
             }
+
+            AnimationFadeCommand = new RelayCommand(AnimationFade);
+            AnimationBlinkCommand = new RelayCommand(AnimationBlink);
+            AnimationMergeCommand = new RelayCommand(AnimationMerge);
+            AnimationF1Command = new RelayCommand(AnimationF1);
+
+            
         }
 
         private void AnimationBlink()
         {
-
+            timer.Tick += new EventHandler<object>(UpdateTimer_Tick);
+            timer.Interval = new TimeSpan(0, 0, 2);
+            timer.Start();
 
             for (int i = 0; i < bulbs.Count; i++)
             {
@@ -89,11 +92,23 @@ namespace IHM_Project.ViewModels
 
         private void AnimationFade()
         {
+            timer.Tick += new EventHandler<object>(UpdateTimer_Tick);
+            timer.Interval = new TimeSpan(0, 0, 2);
+            timer.Start();
+
             for (int i = 0; i < bulbs.Count; i++)
             {
-                bulbs[i].Color = new SolidColorBrush(Colors.Orange);
+                bulbs[i].Color = new SolidColorBrush(Colors.Blue);
             }
+            
 
+            if (timer)
+            {
+                for (int i = 0; i < bulbs.Count; i++)
+                {
+                    bulbs[i].Color = new SolidColorBrush(Colors.Orange);
+                }
+            }
         }
 
         private void AnimationMerge()
@@ -119,11 +134,9 @@ namespace IHM_Project.ViewModels
 
             while (animationCounter < 5)
             {
-                AnimationBlink();
                 animationCounter++;
             }
             animationCounter = 0;
         }
-
     }
 }
