@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using GalaSoft.MvvmLight;
 using Microsoft.UI;
 using Microsoft.UI.Xaml.Media;
 using System;
@@ -18,7 +19,7 @@ namespace IHM_Project.Model
 
         public Bulb()
         {
-            Color = new SolidColorBrush(Colors.Red);
+            color = new SolidColorBrush(Colors.Red);
         }
     }
 }
