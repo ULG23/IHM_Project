@@ -100,14 +100,11 @@ namespace IHM_Project.ViewModels
             {
                 bulbs[i].Color = new SolidColorBrush(Colors.Blue);
             }
-            
 
-            if (timer)
+
+            for (int i = 0; i < bulbs.Count; i++)
             {
-                for (int i = 0; i < bulbs.Count; i++)
-                {
-                    bulbs[i].Color = new SolidColorBrush(Colors.Orange);
-                }
+                bulbs[i].Color = new SolidColorBrush(Colors.Orange);
             }
         }
 
