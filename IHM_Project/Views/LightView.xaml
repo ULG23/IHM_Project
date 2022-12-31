@@ -73,7 +73,7 @@ Fill="{x:Bind lightViewModel.Bulb4.Color, Mode=TwoWay}"
             </StackPanel>
         </StackPanel>
         <StackPanel >
-            <ListViewItem>sljfndsf</ListViewItem>
+            <ListView></ListView>
         </StackPanel>
     </StackPanel>
 </Page>
