@@ -8,6 +8,7 @@ using Microsoft.UI.Xaml.Media;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Runtime.InteropServices.ObjectiveC;
 
 namespace IHM_Project.ViewModels
 {
@@ -19,6 +20,8 @@ namespace IHM_Project.ViewModels
         ListView ListView = new ListView();
         DispatcherTimer timerBlink = new DispatcherTimer();
         DispatcherTimer timerF1 = new DispatcherTimer();
+        DispatcherTimer timerFade = new DispatcherTimer();
+        DispatcherTimer timerMerge = new DispatcherTimer();
 
         [ObservableProperty]
         private Bulb bulb1 = new();
@@ -53,6 +56,10 @@ namespace IHM_Project.ViewModels
             timerBlink.Interval = new TimeSpan(0, 0, 0, 0, 500);
             timerF1.Tick += new EventHandler<object>(UpdateTimerF1_Tick);
             timerF1.Interval = new TimeSpan(0, 0, 0, 0, 500);
+            timerMerge.Tick += new EventHandler<object>(UpdateTimerMerge_Tick);
+            timerMerge.Interval = new TimeSpan(0, 0, 0, 0, 500);
+            timerFade.Tick += new EventHandler<object>(UpdateTimerFade_Tick);
+            timerFade.Interval = new TimeSpan(0, 0, 0, 0, 200);
 
             AnimationBlinkCommand = new RelayCommand(AnimationBlink);
             AnimationFadeCommand = new RelayCommand(AnimationFade);
@@ -87,39 +94,118 @@ namespace IHM_Project.ViewModels
 
         private void AnimationFade()
         {
-            ListView.Items.Add("Item 1");
+            this.tick = 0;
 
-            for (int i = 0; i < bulbs.Count; i++)
-            {
-                bulbs[i].Color = new SolidColorBrush(Colors.Blue);
-            }
-
-
-            for (int i = 0; i < bulbs.Count; i++)
-            {
-                bulbs[i].Color = new SolidColorBrush(Colors.Orange);
-            }
+            timerFade.Start();
         }
 
 
         private void AnimationMerge()
         {
-            for (int i = 0; i < bulbs.Count; i++)
-            {
-                bulbs[i].Color = new SolidColorBrush(Colors.Green);
-            }
 
+            this.tick = 0;
+
+            timerMerge.Start();
         }
         private void AnimationF1()
         {
             this.tick = 0;
+            ListView.Items.Add("Animation  F1");
 
             timerF1.Start();
         }
 
+        private void UpdateTimerFade_Tick(object sender, object e)
+        {
+            if (!timerF1.IsEnabled || !timerBlink.IsEnabled || !timerMerge.IsEnabled)
+            {
+                tick = tick + 1;
+
+                for (int k = 0;k < 6; k++)
+                {
+                    for (int i = 0; i < bulbs.Count; i++)
+                    {
+                        if (tick == (2 + i) + 6 * k)
+                        {
+                            bulbs[i].Color = new SolidColorBrush(Colors.Orange);
+                        }
+                        if (tick == (3 + i) + 6* k)
+                        {
+                            bulbs[i].Color = new SolidColorBrush(Colors.Gray);
+                        }
+                    }
+                }
+
+                if (tick > 25)
+                {
+                    for (int i = 0; i < bulbs.Count; i++)
+                    {
+                        bulbs[i].Color = new SolidColorBrush(Colors.Gray);
+                    }
+                    timerFade.Stop();
+                }
+            }
+        }
+
+        private void UpdateTimerMerge_Tick(object sender, object e)
+        {
+            if (!timerF1.IsEnabled || !timerFade.IsEnabled || !timerBlink.IsEnabled)
+            {
+                tick = tick + 1;
+                for (int k = 0; k < 2; k++)
+                {
+                    for (int i = 0; i < (bulbs.Count / 2); i++)
+                    {
+                        if (tick == 4 * k + 2 + i)
+                        {
+                            bulbs[i].Color = new SolidColorBrush(Colors.Green);
+                            bulbs[bulbs.Count - (i + 1)].Color = new SolidColorBrush(Colors.Green);
+                        }
+                        if (tick == 4 * k + 3 + i)
+                        {
+                            bulbs[i].Color = new SolidColorBrush(Colors.Gray);
+                            bulbs[bulbs.Count - (i + 1)].Color = new SolidColorBrush(Colors.Gray);
+                        }
+                    }
+                }
+                if (tick > 8)
+                {
+                    if (tick % 2 != 0)
+                    {
+                        for (int i = 0; i < bulbs.Count; i++)
+                        {
+                            bulbs[i].Color = new SolidColorBrush(Colors.Green);
+                        }
+
+                    }
+
+                    if (tick % 2 == 0)
+                    {
+                        for (int i = 0; i < bulbs.Count; i++)
+                        {
+                            bulbs[i].Color = new SolidColorBrush(Colors.Gray);
+                        }
+
+                    }
+
+                }
+                if (tick > 14)
+                {
+                    for (int i = 0; i < bulbs.Count; i++)
+                    {
+                        bulbs[i].Color = new SolidColorBrush(Colors.Gray);
+                    }
+                    timerMerge.Stop();
+                }
+
+
+            }
+
+        }
+
         private void UpdateTimerF1_Tick(object sender, object e)
         {
-            if(!timerBlink.IsEnabled)
+            if(!timerBlink.IsEnabled || !timerFade.IsEnabled || !timerMerge.IsEnabled )
             {
                 tick = tick + 1;
                 if (tick < 7)
@@ -139,7 +225,7 @@ namespace IHM_Project.ViewModels
                         }
                     }
                 }
-                if (tick > 17) {
+                if (tick > 20) {
                     for (int i = 0; i < bulbs.Count; i++)
                     {
                         bulbs[i].Color = new SolidColorBrush(Colors.Gray);
@@ -154,7 +240,7 @@ namespace IHM_Project.ViewModels
 
         private void UpdateTimerBlink_Tick(object sender, object e)
         {
-            if (!timerF1.IsEnabled)
+            if (!timerF1.IsEnabled || !timerFade.IsEnabled|| !timerMerge.IsEnabled)
             {
 
                 tick = tick + 1;
