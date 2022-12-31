@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using GalaSoft.MvvmLight;
 using Microsoft.UI;
 using Microsoft.UI.Xaml.Media;
 using System;

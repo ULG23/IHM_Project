@@ -33,8 +33,6 @@ namespace IHM_Project
     public sealed partial class MainWindow : Window
     {
 
-        public ICommand EditCommand { get; set; }
-
 
         public MainWindow()
         {
