@@ -44,11 +44,14 @@ namespace IHM_Project.ViewModels
         [ObservableProperty]
         private List<Bulb> bulbs = new();
 
-        public IRelayCommand AnimationBlinkCommand { get; }
+        [ObservableProperty]
+        private List<Animation> listAnimation = new List<Animation>();
 
+        public IRelayCommand AnimationBlinkCommand { get; }
         public IRelayCommand AnimationFadeCommand { get; }
         public IRelayCommand AnimationMergeCommand { get; }
         public IRelayCommand AnimationF1Command { get; }
+
 
         public LightViewModel()
         {
@@ -82,6 +85,7 @@ namespace IHM_Project.ViewModels
             AnimationMergeCommand = new RelayCommand(AnimationMerge);
             AnimationF1Command = new RelayCommand(AnimationF1);
 
+            listAnimation.Add(new Animation{name = "anim 1"});
         }
 
         private void AnimationBlink()
