@@ -130,13 +130,13 @@ namespace IHM_Project.ViewModels
                     }
                 }
                 else
-        {
-            for (int i = 0; i < bulbs.Count; i++)
-            {
+                {
+                    for (int i = 0; i < bulbs.Count; i++)
+                    {
                         if (tick == 8 + 2 * i)
                         {
-                bulbs[i].Color = new SolidColorBrush(Colors.Red);
-            }
+                            bulbs[i].Color = new SolidColorBrush(Colors.Red);
+                        }
                     }
                 }
                 if (tick > 17) { timerF1.Stop(); }
@@ -151,26 +151,26 @@ namespace IHM_Project.ViewModels
             if (!timerF1.IsEnabled)
             {
 
-            tick = tick + 1;
-            if (tick <= 8)
-            {
-                if (tick % 2 != 0)
+                tick = tick + 1;
+                if (tick <= 8)
                 {
-                    for (int i = 0; i < bulbs.Count; i++)
+                    if (tick % 2 != 0)
                     {
-                        bulbs[i].Color = new SolidColorBrush(Colors.Blue);
+                        for (int i = 0; i < bulbs.Count; i++)
+                        {
+                            bulbs[i].Color = new SolidColorBrush(Colors.Blue);
+                        }
+
                     }
 
-                }
-
-                if (tick % 2 == 0)
-                {
-                    for (int i = 0; i < bulbs.Count; i++)
+                    if (tick % 2 == 0)
                     {
-                        bulbs[i].Color = new SolidColorBrush(Colors.Gray);
-                    }
+                        for (int i = 0; i < bulbs.Count; i++)
+                        {
+                            bulbs[i].Color = new SolidColorBrush(Colors.Gray);
+                        }
 
-                }
+                    }
                 }
                 else timerBlink.Stop();
             }
