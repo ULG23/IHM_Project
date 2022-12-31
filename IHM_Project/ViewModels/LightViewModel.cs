@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using IHM_Project.Model;
 using Microsoft.UI;
 using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,9 @@ namespace IHM_Project.ViewModels
     {
 
         int tick = 0;
-
+        ListView ListView = new ListView();
         DispatcherTimer timerBlink = new DispatcherTimer();
+        DispatcherTimer timerF1 = new DispatcherTimer();
 
         [ObservableProperty]
         private Bulb bulb1 = new();
@@ -49,6 +51,8 @@ namespace IHM_Project.ViewModels
         {
             timerBlink.Tick += new EventHandler<object>(UpdateTimerBlink_Tick);
             timerBlink.Interval = new TimeSpan(0, 0, 0, 0, 500);
+            timerF1.Tick += new EventHandler<object>(UpdateTimerF1_Tick);
+            timerF1.Interval = new TimeSpan(0, 0, 0, 0, 500);
 
             AnimationBlinkCommand = new RelayCommand(AnimationBlink);
             AnimationFadeCommand = new RelayCommand(AnimationFade);
@@ -65,6 +69,12 @@ namespace IHM_Project.ViewModels
             {
                 bulbs[i].Color = new SolidColorBrush(Colors.Gray);
             }
+
+            AnimationFadeCommand = new RelayCommand(AnimationFade);
+            AnimationBlinkCommand = new RelayCommand(AnimationBlink);
+            AnimationMergeCommand = new RelayCommand(AnimationMerge);
+            AnimationF1Command = new RelayCommand(AnimationF1);
+
         }
 
         private void AnimationBlink()
@@ -77,11 +87,18 @@ namespace IHM_Project.ViewModels
 
         private void AnimationFade()
         {
+            ListView.Items.Add("Item 1");
+
+            for (int i = 0; i < bulbs.Count; i++)
+            {
+                bulbs[i].Color = new SolidColorBrush(Colors.Blue);
+            }
+
+
             for (int i = 0; i < bulbs.Count; i++)
             {
                 bulbs[i].Color = new SolidColorBrush(Colors.Orange);
             }
-
         }
 
 
@@ -93,41 +110,76 @@ namespace IHM_Project.ViewModels
             }
 
         }
-
         private void AnimationF1()
         {
-            for (int i = 0; i < bulbs.Count; i++)
-            {
-                bulbs[i].Color = new SolidColorBrush(Colors.Red);
-            }
+            this.tick = 0;
 
+            timerF1.Start();
         }
 
-        private void UpdateTimerBlink_Tick(object sender, object e)
+        private void UpdateTimerF1_Tick(object sender, object e)
         {
-
-            tick = tick + 1;
-            if (tick <= 8)
+            if(!timerBlink.IsEnabled)
             {
-                if (tick % 2 != 0)
+                tick = tick + 1;
+                if (tick < 7)
                 {
                     for (int i = 0; i < bulbs.Count; i++)
                     {
-                        bulbs[i].Color = new SolidColorBrush(Colors.Blue);
+                        bulbs[i].Color = new SolidColorBrush(Colors.Black);
                     }
-
                 }
-
-                if (tick % 2 == 0)
+                else
                 {
+                    for (int i = 0; i < bulbs.Count; i++)
+                    {
+                        if (tick == 8 + 2 * i)
+                        {
+                            bulbs[i].Color = new SolidColorBrush(Colors.Red);
+                        }
+                    }
+                }
+                if (tick > 17) {
                     for (int i = 0; i < bulbs.Count; i++)
                     {
                         bulbs[i].Color = new SolidColorBrush(Colors.Gray);
                     }
-
+                    timerF1.Stop(); 
                 }
             }
-            else return;
+
+        }
+
+
+
+        private void UpdateTimerBlink_Tick(object sender, object e)
+        {
+            if (!timerF1.IsEnabled)
+            {
+
+                tick = tick + 1;
+                if (tick <= 8)
+                {
+                    if (tick % 2 != 0)
+                    {
+                        for (int i = 0; i < bulbs.Count; i++)
+                        {
+                            bulbs[i].Color = new SolidColorBrush(Colors.Blue);
+                        }
+
+                    }
+
+                    if (tick % 2 == 0)
+                    {
+                        for (int i = 0; i < bulbs.Count; i++)
+                        {
+                            bulbs[i].Color = new SolidColorBrush(Colors.Gray);
+                        }
+
+                    }
+                }
+                else timerBlink.Stop();
+            }
 
 
             //while (animationCounter < 5)
