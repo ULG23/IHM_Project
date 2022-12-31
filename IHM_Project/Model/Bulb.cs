@@ -14,7 +14,7 @@ namespace IHM_Project.Model
     public partial class Bulb
     {
         [ObservableProperty]
-        private Brush color;
+        private Brush color ;
 
         public Bulb()
         {

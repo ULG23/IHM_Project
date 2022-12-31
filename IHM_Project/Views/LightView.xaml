@@ -10,7 +10,6 @@
 
     <StackPanel>
         <StackPanel x:Name="lampes" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="12">
-            <Button x:Name="buttonForAll" Background="Gray">Allumer</Button>
             <StackPanel>
                 <Ellipse
                     Fill="{x:Bind lightViewModel.Bulb1.Color, Mode=OneWay}"
