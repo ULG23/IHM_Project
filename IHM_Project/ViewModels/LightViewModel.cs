@@ -139,7 +139,13 @@ namespace IHM_Project.ViewModels
                         }
                     }
                 }
-                if (tick > 17) { timerF1.Stop(); }
+                if (tick > 17) {
+                    for (int i = 0; i < bulbs.Count; i++)
+                    {
+                        bulbs[i].Color = new SolidColorBrush(Colors.Gray);
+                    }
+                    timerF1.Stop(); 
+                }
             }
 
         }
