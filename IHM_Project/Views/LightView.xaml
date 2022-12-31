@@ -19,7 +19,7 @@
         <StackPanel x:Name="lampes" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="12">
             <StackPanel>
                 <Ellipse
-                    Fill="{x:Bind lightViewModel.Bulb1.Color, Mode=OneWay}"
+                    Fill="{x:Bind lightViewModel.Bulb1.Color, Mode=TwoWay}"
     Name="lamp1"
      Height="150"
      Width="150"
@@ -28,7 +28,7 @@
             </StackPanel>
             <StackPanel>
                 <Ellipse
-                    Fill="{x:Bind lightViewModel.Bulb2.Color, Mode=OneWay}"
+                    Fill="{x:Bind lightViewModel.Bulb2.Color, Mode=TwoWay}"
      Name="lamp2"
      Height="150"
      Width="150"
@@ -37,7 +37,7 @@
             </StackPanel>
             <StackPanel>
                 <Ellipse
-                    Fill="{x:Bind lightViewModel.Bulb3.Color, Mode=OneWay}"
+                    Fill="{x:Bind lightViewModel.Bulb3.Color, Mode=TwoWay}"
     Name="lamp3"
      Height="150"
      Width="150"
@@ -46,7 +46,7 @@
             </StackPanel>
             <StackPanel>
                 <Ellipse
-Fill="{x:Bind lightViewModel.Bulb4.Color, Mode=OneWay}"
+Fill="{x:Bind lightViewModel.Bulb4.Color, Mode=TwoWay}"
     Name="lamp4"
      Height="150"
      Width="150"
@@ -55,7 +55,7 @@ Fill="{x:Bind lightViewModel.Bulb4.Color, Mode=OneWay}"
             </StackPanel>
             <StackPanel>
                 <Ellipse
-                    Fill="{x:Bind lightViewModel.Bulb5.Color, Mode=OneWay}"
+                    Fill="{x:Bind lightViewModel.Bulb5.Color, Mode=TwoWay}"
     Name="lamp5"
      Height="150"
      Width="150"
@@ -64,7 +64,7 @@ Fill="{x:Bind lightViewModel.Bulb4.Color, Mode=OneWay}"
             </StackPanel>
             <StackPanel>
                 <Ellipse
-                    Fill="{x:Bind lightViewModel.Bulb6.Color, Mode=OneWay}"
+                    Fill="{x:Bind lightViewModel.Bulb6.Color, Mode=TwoWay}"
     Name="lamp6"
      Height="150"
      Width="150"

@@ -2,7 +2,9 @@
 using CommunityToolkit.Mvvm.Input;
 using IHM_Project.Model;
 using Microsoft.UI;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -11,23 +13,28 @@ namespace IHM_Project.ViewModels
     [ObservableObject]
     public partial class LightViewModel
     {
+
+        private int animationCounter = 0;
+
+        DispatcherTimer timer = new DispatcherTimer();
+
         [ObservableProperty]
         private Bulb bulb1 = new();
 
         [ObservableProperty]
-        private Bulb bulb2 = new() ;
+        private Bulb bulb2 = new();
 
         [ObservableProperty]
-        private Bulb bulb3 = new() ;
+        private Bulb bulb3 = new();
 
         [ObservableProperty]
-        private Bulb bulb4 = new() ;
+        private Bulb bulb4 = new();
 
         [ObservableProperty]
-        private Bulb bulb5 = new() ;
+        private Bulb bulb5 = new();
 
         [ObservableProperty]
-        private Bulb bulb6 = new() ;
+        private Bulb bulb6 = new();
 
         [ObservableProperty]
         private List<Bulb> bulbs = new();
@@ -40,6 +47,11 @@ namespace IHM_Project.ViewModels
 
         public LightViewModel()
         {
+
+            timer.Tick += new EventHandler<object>(UpdateTimer_Tick);
+            timer.Interval = new TimeSpan(0, 0, 2);
+            timer.Start();
+
             AnimationBlinkCommand = new RelayCommand(AnimationBlink);
             AnimationFadeCommand = new RelayCommand(AnimationFade);
             AnimationMergeCommand = new RelayCommand(AnimationMerge);
@@ -59,18 +71,27 @@ namespace IHM_Project.ViewModels
 
         private void AnimationBlink()
         {
-            for(int i = 0; i < bulbs.Count; i++)
+
+
+            for (int i = 0; i < bulbs.Count; i++)
             {
                 bulbs[i].Color = new SolidColorBrush(Colors.Blue);
             }
 
+            if (bulbs[1].Color == new SolidColorBrush(Colors.Blue))
+            {
+                for (int i = 0; i < bulbs.Count; i++)
+                {
+                    bulbs[i].Color = new SolidColorBrush(Colors.Gray);
+                }
+            }
         }
 
         private void AnimationFade()
         {
             for (int i = 0; i < bulbs.Count; i++)
             {
-                bulbs[i].Color = new SolidColorBrush(Colors.Blue);
+                bulbs[i].Color = new SolidColorBrush(Colors.Orange);
             }
 
         }
@@ -79,7 +100,7 @@ namespace IHM_Project.ViewModels
         {
             for (int i = 0; i < bulbs.Count; i++)
             {
-                bulbs[i].Color = new SolidColorBrush(Colors.Blue);
+                bulbs[i].Color = new SolidColorBrush(Colors.Green);
             }
 
         }
@@ -88,9 +109,20 @@ namespace IHM_Project.ViewModels
         {
             for (int i = 0; i < bulbs.Count; i++)
             {
-                bulbs[i].Color = new SolidColorBrush(Colors.Blue);
+                bulbs[i].Color = new SolidColorBrush(Colors.Red);
             }
 
+        }
+
+        private void UpdateTimer_Tick(object sender, object e)
+        {
+
+            while (animationCounter < 5)
+            {
+                AnimationBlink();
+                animationCounter++;
+            }
+            animationCounter = 0;
         }
 
     }
