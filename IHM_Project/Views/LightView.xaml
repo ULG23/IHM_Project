@@ -73,7 +73,13 @@ Fill="{x:Bind lightViewModel.Bulb4.Color, Mode=TwoWay}"
             </StackPanel>
         </StackPanel>
         <StackPanel >
-            <ListViewItem>sljfndsf</ListViewItem>
+            <CommandBar Background="Transparent" DefaultLabelPosition="Right">
+                <AppBarButton Icon="Play" Label="Play"/>
+                <AppBarButton Icon="Pause" Label="Pause"/>
+                <AppBarButton Icon="Delete" Label="Supprimer"/>
+                <AppBarButton Icon="Cancel" Label="Tout Supprimer"/>
+            </CommandBar>
+            <ListViewItem x:Name="AnimationList" ></ListViewItem>
         </StackPanel>
     </StackPanel>
 </Page>
