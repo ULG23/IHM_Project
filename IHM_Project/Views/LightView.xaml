@@ -72,5 +72,8 @@ Fill="{x:Bind lightViewModel.Bulb4.Color, Mode=TwoWay}"
      Stroke="Black"/>
             </StackPanel>
         </StackPanel>
+        <StackPanel >
+            <ListViewItem>sljfndsf</ListViewItem>
+        </StackPanel>
     </StackPanel>
 </Page>
