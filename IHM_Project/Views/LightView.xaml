@@ -4,7 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:IHM_Project.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+     xmlns:Models="using:IHM_Project.Model"
     mc:Ignorable="d"
     Background="Transparent">
 
@@ -15,7 +16,7 @@
             <Button Command="{x:Bind lightViewModel.AnimationMergeCommand}" >Animation Merge</Button>
             <Button Command="{x:Bind lightViewModel.AnimationF1Command}">Animation F1</Button>
         </StackPanel>
-        
+
         <StackPanel x:Name="lampes" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="12">
             <StackPanel>
                 <Ellipse
@@ -74,12 +75,28 @@ Fill="{x:Bind lightViewModel.Bulb4.Color, Mode=TwoWay}"
         </StackPanel>
         <StackPanel >
             <CommandBar Background="Transparent" DefaultLabelPosition="Right">
-                <AppBarButton Icon="Play" Label="Play"/>
-                <AppBarButton Icon="Pause" Label="Pause"/>
-                <AppBarButton Icon="Delete" Label="Supprimer"/>
-                <AppBarButton Icon="Cancel" Label="Tout Supprimer"/>
-            </CommandBar>
-            <ListViewItem x:Name="AnimationList" ></ListViewItem>
+                <AppBarButton Icon="Play" Label="Play" Click="{x:Bind lightViewModel.Play}"/>
+                <AppBarButton Icon="Pause" Label="Pause" Click="{x:Bind lightViewModel.Stop}"/>
+            </CommandBar>            <StackPanel BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="12" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Button Command="{x:Bind lightViewModel.AnimationList1Command}">Animations F1</Button>
+            </StackPanel>
+
+            <!-- <ListView
+                 x:Name="AnimationView">
+                <ListView.ItemsSource>
+                    <x:Bind lightViewModel>
+                </ListView.ItemsSource>
+                    
+
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="Models:Animation">
+                        <StackPanel>
+                            <TextBlock Text="{x:Bind Name}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>-->
         </StackPanel>
     </StackPanel>
 </Page>
