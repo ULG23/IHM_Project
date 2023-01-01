@@ -84,6 +84,12 @@ Fill="{x:Bind lightViewModel.Bulb4.Color, Mode=TwoWay}"
                 <Button Command="{x:Bind lightViewModel.AnimationList4Command}">Animations Fade-Blink-F1-Merge</Button>
                 <Button Command="{x:Bind lightViewModel.AnimationList5Command}">Animations Merge-F1-Blink-Fade</Button>
             </StackPanel>
+			<StackPanel BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="12" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+				<Button Command="{x:Bind lightViewModel.AnimationList3_1Command}">Animations Blink-Fade-Merge</Button>
+				<Button Command="{x:Bind lightViewModel.AnimationList3_2Command}">Animations Merge-F1-Fade</Button>
+				<Button Command="{x:Bind lightViewModel.AnimationList3_3Command}">Animations F1-Blink-Merge</Button>
+				<Button Command="{x:Bind lightViewModel.AnimationList3_4Command}">Animations Merge-Blink-Fade</Button>
+			</StackPanel>
 
             <!-- <ListView
                  x:Name="AnimationView">
