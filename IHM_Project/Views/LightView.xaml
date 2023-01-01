@@ -78,7 +78,8 @@ Fill="{x:Bind lightViewModel.Bulb4.Color, Mode=TwoWay}"
                 <AppBarButton Icon="Play" Label="Play" Click="{x:Bind lightViewModel.Play}"/>
                 <AppBarButton Icon="Pause" Label="Pause" Click="{x:Bind lightViewModel.Stop}"/>
             </CommandBar>            <StackPanel BorderBrush="Black" BorderThickness="2" CornerRadius="10" Padding="12" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Button Command="{x:Bind lightViewModel.AnimationList1Command}">Animations F1</Button>
+                <Button Command="{x:Bind lightViewModel.AnimationList1Command}">Animations Blink-Fade-Merge-F1</Button>
+                <Button Command="{x:Bind lightViewModel.AnimationList2Command}">Animations F1-Merge-Fade-Blink</Button>
             </StackPanel>
 
             <!-- <ListView

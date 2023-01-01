@@ -24,7 +24,7 @@ namespace IHM_Project.ViewModels
         int mergeIsRunning = 0;
         int F1IsRunning = 0;
 
-        int[] animationsList = new int[] {0};
+        int[] animationsList = new int[] { 0 };
 
 
         ListView ListView = new ListView();
@@ -62,6 +62,7 @@ namespace IHM_Project.ViewModels
         public IRelayCommand AnimationMergeCommand { get; }
         public IRelayCommand AnimationF1Command { get; }
         public IRelayCommand AnimationList1Command { get; }
+        public IRelayCommand AnimationList2Command { get; }
 
 
 
@@ -81,6 +82,7 @@ namespace IHM_Project.ViewModels
             AnimationMergeCommand = new RelayCommand(AnimationMerge);
             AnimationF1Command = new RelayCommand(AnimationF1);
             AnimationList1Command = new RelayCommand(AnimationList1);
+            AnimationList2Command = new RelayCommand(AnimationList2);
 
             bulbs.Add(bulb1);
             bulbs.Add(bulb2);
@@ -162,7 +164,7 @@ namespace IHM_Project.ViewModels
 
         }
 
-        private  void AnimationFade()
+        private void AnimationFade()
         {
             this.tick = 0;
 
@@ -186,8 +188,14 @@ namespace IHM_Project.ViewModels
 
         private void AnimationList1()
         {
-            animationsList = new int[] {2,3,4};
+            animationsList = new int[] { 2, 3, 4 };
             AnimationBlink();
+        } 
+        
+        private void AnimationList2()
+        {
+            animationsList = new int[] {3,2, 1 };
+            AnimationF1();
         }
 
         private void UpdateTimerFade_Tick(object sender, object e)
@@ -219,28 +227,29 @@ namespace IHM_Project.ViewModels
                         bulbs[i].Color = new SolidColorBrush(Colors.Gray);
                     }
                     timerFade.Stop();
+                    if (animationsList.Length != 0 && animationsList.First() == 1)
+                    {
+                        animationsList = animationsList.Skip(1).ToArray();
+                        AnimationBlink();
+                    }
+                    else if (animationsList.Length != 0 && animationsList[0] == 2)
+                    {
+                        animationsList = animationsList.Skip(1).ToArray();
+                        AnimationFade();
+                    }
+                    else if (animationsList.Length != 0 && animationsList[0] == 3)
+                    {
+                        animationsList = animationsList.Skip(1).ToArray();
+                        AnimationMerge();
+                    }
+                    else if (animationsList.Length != 0 && animationsList[0] == 4)
+                    {
+                        animationsList = animationsList.Skip(1).ToArray();
+                        AnimationF1();
+                    }
                 }
             }
-            if (animationsList.Length != 0 && animationsList.First() == 1)
-            {
-                animationsList = animationsList.Skip(1).ToArray();
-                AnimationBlink();
-            }
-            if (animationsList.Length != 0 &&  animationsList[0] == 2)
-            {
-                animationsList = animationsList.Skip(1).ToArray();
-                AnimationFade();
-            }
-            if (animationsList.Length != 0 &&  animationsList[0] == 3)
-            {
-                animationsList = animationsList.Skip(1).ToArray();
-                AnimationMerge();
-            }
-            if (animationsList.Length != 0 &&  animationsList[0] == 4)
-            {
-                animationsList = animationsList.Skip(1).ToArray();
-                AnimationF1();
-            }
+
         }
 
         private void UpdateTimerMerge_Tick(object sender, object e)
@@ -293,29 +302,31 @@ namespace IHM_Project.ViewModels
                         bulbs[i].Color = new SolidColorBrush(Colors.Gray);
                     }
                     timerMerge.Stop();
+                    mergeIsRunning = 2;
+                    if (animationsList.Length != 0 && animationsList[0] == 1)
+                    {
+                        animationsList = animationsList.Skip(1).ToArray();
+                        AnimationBlink();
+                    }
+                    else if (animationsList.Length != 0 && animationsList[0] == 2)
+                    {
+                        animationsList = animationsList.Skip(1).ToArray();
+                        AnimationFade();
+                    }
+                    else if (animationsList.Length != 0 && animationsList[0] == 3)
+                    {
+                        animationsList = animationsList.Skip(1).ToArray();
+                        AnimationMerge();
+                    }
+                    else if (animationsList.Length != 0 && animationsList[0] == 4)
+                    {
+                        animationsList = animationsList.Skip(1).ToArray();
+                        AnimationF1();
+                    }
+
                 }
             }
-            mergeIsRunning = 2;
-            if (animationsList.Length != 0 && animationsList[0] == 1)
-            {
-                animationsList = animationsList.Skip(1).ToArray();
-                AnimationBlink();
-            }
-            if (animationsList.Length != 0 &&  animationsList[0] == 2)
-            {
-                animationsList = animationsList.Skip(1).ToArray();
-                AnimationFade();
-            }
-            if (animationsList.Length != 0 &&  animationsList[0] == 3)
-            {
-                animationsList = animationsList.Skip(1).ToArray();
-                AnimationMerge();
-            }
-            if (animationsList.Length != 0 &&  animationsList[0] == 4)
-            {
-                animationsList = animationsList.Skip(1).ToArray();
-                AnimationF1();
-            }
+
         }
 
         private void UpdateTimerF1_Tick(object sender, object e)
@@ -348,29 +359,31 @@ namespace IHM_Project.ViewModels
                         bulbs[i].Color = new SolidColorBrush(Colors.Gray);
                     }
                     timerF1.Stop();
+                    F1IsRunning = 2;
+                    if (animationsList.Length != 0 && animationsList[0] == 1)
+                    {
+                        animationsList = animationsList.Skip(1).ToArray();
+                        AnimationBlink();
+                    }
+                    else if (animationsList.Length != 0 && animationsList[0] == 2)
+                    {
+                        animationsList = animationsList.Skip(1).ToArray();
+                        AnimationFade();
+                    }
+                    else if (animationsList.Length != 0 && animationsList[0] == 3)
+                    {
+                        animationsList = animationsList.Skip(1).ToArray();
+                        AnimationMerge();
+                    }
+                    else if (animationsList.Length != 0 && animationsList[0] == 4)
+                    {
+                        animationsList = animationsList.Skip(1).ToArray();
+                        AnimationF1();
+                    }
                 }
             }
-            F1IsRunning = 2;
-            if (animationsList.Length != 0 &&  animationsList[0] == 1)
-            {
-                animationsList = animationsList.Skip(1).ToArray();
-                AnimationBlink();
-            }
-            if (animationsList.Length != 0 &&  animationsList[0] == 2)
-            {
-                animationsList = animationsList.Skip(1).ToArray();
-                AnimationFade();
-            }
-            if (animationsList.Length != 0 &&  animationsList[0] == 3)
-            {
-                animationsList = animationsList.Skip(1).ToArray();
-                AnimationMerge();
-            }
-            if (animationsList.Length != 0 &&  animationsList[0] == 4)
-            {
-                animationsList = animationsList.Skip(1).ToArray();
-                AnimationF1();
-            }
+
+
         }
 
 
@@ -410,17 +423,17 @@ namespace IHM_Project.ViewModels
                         animationsList = animationsList.Skip(1).ToArray();
                         AnimationBlink();
                     }
-                    if (animationsList.Length != 0 && animationsList[0] == 2)
+                    else if (animationsList.Length != 0 && animationsList[0] == 2)
                     {
                         animationsList = animationsList.Skip(1).ToArray();
                         AnimationFade();
                     }
-                    if (animationsList.Length != 0 && animationsList[0] == 3)
+                    else if (animationsList.Length != 0 && animationsList[0] == 3)
                     {
                         animationsList = animationsList.Skip(1).ToArray();
                         AnimationMerge();
                     }
-                    if (animationsList.Length != 0 && animationsList[0] == 4)
+                    else if (animationsList.Length != 0 && animationsList[0] == 4)
                     {
                         animationsList = animationsList.Skip(1).ToArray();
                         AnimationF1();
@@ -429,7 +442,7 @@ namespace IHM_Project.ViewModels
 
             }
 
-           
+
         }
 
 
