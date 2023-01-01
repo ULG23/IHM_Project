@@ -63,6 +63,10 @@ namespace IHM_Project.ViewModels
         public IRelayCommand AnimationF1Command { get; }
         public IRelayCommand AnimationList1Command { get; }
         public IRelayCommand AnimationList2Command { get; }
+        public IRelayCommand AnimationList3_1Command { get; }
+        public IRelayCommand AnimationList3_2Command { get; }
+        public IRelayCommand AnimationList3_3Command { get; }
+        public IRelayCommand AnimationList3_4Command { get; }
 
 
 
@@ -83,6 +87,11 @@ namespace IHM_Project.ViewModels
             AnimationF1Command = new RelayCommand(AnimationF1);
             AnimationList1Command = new RelayCommand(AnimationList1);
             AnimationList2Command = new RelayCommand(AnimationList2);
+            AnimationList3_1Command = new RelayCommand(AnimationList3_1);
+            AnimationList3_2Command = new RelayCommand(AnimationList3_2);
+            AnimationList3_3Command = new RelayCommand(AnimationList3_3);
+            AnimationList3_4Command = new RelayCommand(AnimationList3_3);
+
 
             bulbs.Add(bulb1);
             bulbs.Add(bulb2);
@@ -196,6 +205,28 @@ namespace IHM_Project.ViewModels
         {
             animationsList = new int[] {3,2, 1 };
             AnimationF1();
+        }
+
+        private void AnimationList3_1()
+        {
+            animationsList = new int[] { 2, 3 };
+            AnimationBlink();
+        }
+
+        private void AnimationList3_2()
+        {
+            animationsList = new int[] { 4, 3 };
+            AnimationMerge();
+        }
+        private void AnimationList3_3()
+        {
+            animationsList = new int[] { 1, 3 };
+            AnimationF1();
+        }
+        private void AnimationList3_4()
+        {
+            animationsList = new int[] {1, 2 };
+            AnimationMerge();
         }
 
         private void UpdateTimerFade_Tick(object sender, object e)
