@@ -63,6 +63,9 @@ namespace IHM_Project.ViewModels
         public IRelayCommand AnimationF1Command { get; }
         public IRelayCommand AnimationList1Command { get; }
         public IRelayCommand AnimationList2Command { get; }
+        public IRelayCommand AnimationList3Command { get; }
+        public IRelayCommand AnimationList4Command { get; }
+        public IRelayCommand AnimationList5Command { get; }
 
 
 
@@ -83,6 +86,9 @@ namespace IHM_Project.ViewModels
             AnimationF1Command = new RelayCommand(AnimationF1);
             AnimationList1Command = new RelayCommand(AnimationList1);
             AnimationList2Command = new RelayCommand(AnimationList2);
+            AnimationList3Command = new RelayCommand(AnimationList3);
+            AnimationList4Command = new RelayCommand(AnimationList4);
+            AnimationList5Command = new RelayCommand(AnimationList5);
 
             bulbs.Add(bulb1);
             bulbs.Add(bulb2);
@@ -190,12 +196,27 @@ namespace IHM_Project.ViewModels
         {
             animationsList = new int[] { 2, 3, 4 };
             AnimationBlink();
-        } 
-        
+        }
+
         private void AnimationList2()
         {
-            animationsList = new int[] {3,2, 1 };
+            animationsList = new int[] { 3, 2, 1 };
             AnimationF1();
+        }
+        private void AnimationList3()
+        {
+            animationsList = new int[] { 4, 1, 2 };
+            AnimationMerge();
+        }
+        private void AnimationList4()
+        {
+            animationsList = new int[] { 1, 4, 3 };
+            AnimationFade();
+        }
+        private void AnimationList5()
+        {
+            animationsList = new int[] { 4,1,2 };
+            AnimationMerge();
         }
 
         private void UpdateTimerFade_Tick(object sender, object e)
